@@ -17,10 +17,14 @@ const Timer = () => {
             display1.textContent = hrs;
             display2.textContent = minutes;
             display3.textContent = seconds;
+            if( document.getElementById("insideSec") &&
+            document.getElementById("insideSec") &&
+            document.getElementById("insideHr"))
+            {
             document.getElementById("insideSec").style.height=h1+ "vh";
             document.getElementById("insideMin").style.height=h2+ "vh";
             document.getElementById("insideHr").style.height=h3+ "vh";
-            //seconds logic
+            }//seconds logic
             h1=parseFloat(h1,10);
             h1=h1-(.13);
             if(h1<=.13)
