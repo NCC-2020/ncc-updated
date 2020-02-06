@@ -51,7 +51,7 @@ const Timer = () => {
     
     window.onload = function () {
         let hrs = 60*60*3;
-        let display1 = document.querySelector('#hr');
+            let display1 = document.querySelector('#hr');
             let display2 = document.querySelector('#min');
             let display3 = document.querySelector('#sec');
         startTimer(hrs, display1,display2,display3);
