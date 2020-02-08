@@ -6,6 +6,8 @@ import Pagination from "./common/Pagination";
 import Table from "./table";
 import Search from "./Search";
 import "./finalBoard.css";
+import Title from "../title"
+
 class FinalBoard extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +46,7 @@ class FinalBoard extends Component {
     return (
       <main className="container">
         <div className="row">
+        
           <div className="row" style={{ margin: "8vh" }}>
             <Search teams={teams} onSearch={this.onSearch} />
           </div>

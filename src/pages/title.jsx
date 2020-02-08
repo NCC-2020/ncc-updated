@@ -7,6 +7,7 @@ const Title = (props) => {
             textShadow:"1px 1px 2px #000",
             height:"7vh",
             fontSize:"4vh",
+            marginLeft:"2vw"
             // boxShadow:"inset 0 -5px 5px -5px rgb(30,65,105)"
         }}>
            <u> {props.title}</u>

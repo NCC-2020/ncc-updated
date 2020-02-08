@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import "./navBar.css";
+import Score from "./score";
 import NavDivs from './navDivs'
 import Timer from "./timer"
 
@@ -59,8 +60,11 @@ class Navbar extends Component {
     return ( 
       <div className="col-sm-2 navbar" style={{display:'block'}}>
         <NavDivs imgSrc="/ctd.png" styling={{height:'18vh', display:'flex', justifyContent:'center', alignContent:'center'}}/>
-        <div className='row timer' style={{height:'18vh'}}>
+        <div className='row timer' style={{height:'10vh'}}>
           <Timer />
+        </div>
+        <div className="row" style={{height:"8vh",display:'flex', justifyContent:'center', alignContent:'center'}}>
+            <Score/>
         </div>
         <NavDivs imgSrc="/Question.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classQue} />
         <NavDivs imgSrc="/iconLeader.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classLeader} />

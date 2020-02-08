@@ -14,6 +14,7 @@ import RenderTestPage from "./pages/Testcases/RenderTestPage";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Switch>
         <Route path="/result" component={Result} />
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" component={Login} />
       </Switch>
     </BrowserRouter>
+    
   );
 }
 

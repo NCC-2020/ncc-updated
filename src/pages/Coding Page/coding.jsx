@@ -13,11 +13,6 @@ class Coding extends Component {
         <div className="row" style={{ height: "93vh" }}>
           <Navbar />
           <div className="col-sm-10">
-            <div className="row" style={{ height: "7vh" }}>
-              <p className="pageTitle">
-                <u>Coding Page</u>
-              </p>
-            </div>
             <div className="row" style={{ height: "86vh" }}>
               <CodingPage />
             </div>
