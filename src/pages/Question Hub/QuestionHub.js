@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import logo from './logo.svg';
 import "./QuestionHub.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../../mainComponents/Navbar";

@@ -19,7 +19,7 @@ class MoviesTable extends Component {
   render() {
     const { newTable, teams } = this.props;
     return (
-      <table className="table mytable table-striped  borderless">
+      <table className="table sanTable borderless">
         <TableHeader columns={this.columns} />
         <TableBody data={newTable} columns={this.columns} />
       </table>

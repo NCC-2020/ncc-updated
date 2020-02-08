@@ -1,37 +1,51 @@
-.mytable{
+.mytable {
     /* font-size: 10px; */
     text-align: center;
-    
     justify-content: center;
     margin-left: 0;
-    background-color: rgba(37, 36, 36, 0.466);
-    border-radius: 20px;   
-   
+    background-color: rgba(8, 8, 15, 0.8);
+    border-radius: 7px;
+    color: whitesmoke;
+  
     width: 65vw;
     height: 65vh;
-}
-
- .borderless th {
+  }
+  
+  .borderless th {
     border: none;
-}
-
-.tdiv{
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+  }
+  .borderless td {
+    border: none;
+  
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .myAcc {
+    margin-left: -20vw;
+  }
+  .tdiv {
     margin: auto;
-}
-
-.pbar
-{
-    width: 20vw;
-    height: 5vh;
+  }
+  
+  .pbar {
+    width: 17vw;
+    height: 3.5vh;
     border-radius: 7px;
-  
-}
-.inner-pbar{
-  
-   
-}
-.mybutton{
+    margin-left: 1vw;
+  }
+  .inner-pbar {
+  }
+  .progress {
+    position: relative;
+  }
+  .mybutton {
     width: 7vw;
     height: 5vh;
     border-radius: 7px;
-}
+  }
+  

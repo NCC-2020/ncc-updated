@@ -1,47 +1,20 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router'
 
-// export default function NavDivs(props) {
-//     const {imgSrc, styling} = props;
-//     let division;
-//     if(imgSrc==='/ctd.png')
-//         division = 'Credenz Tech Dayz';
-//     else if(imgSrc==='/Question.png')
-//         division='question';
-//     else if(imgSrc==='/iconLeader.png')
-//         division='Leaderboard';
-//     else if(imgSrc==='/submissions.png')
-//         division='Submissions';
-//     else
-//         division='Log Out';
-    
-//     if(imgSrc==='/ctd.png'){
-//         return (
-//             <div className='row' style={styling} onClick={() => this.handleClick}>
-//                 <img src="/ctd.png" alt={`${division}`} style={{height:'15vh', width:'13vw'}} />
-//             </div>
-//         )
-//     }
-//     else{
-//         return(
-//             <div className='row links'>
-//                 <img src={`${imgSrc}`} alt={`${division}`} style={styling}/>
-//                 <span>{division}</span>
-//             </div>
-//         )
-//     }
-// }
-
 class NavDivs extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            redirect: false
+            redirect: false,
+            classSub: "",
+            classQue: "",
+            classLeader: ""
         }
     }
-    
-    handleClick = () => {
+
+    handleClick = d => {
+        this.props.changeColor(d);
         this.setState({
             redirect: true
         })
@@ -51,16 +24,25 @@ class NavDivs extends Component {
 
     const {imgSrc, styling} = this.props;
     let division;
+    let name;
     if(imgSrc==='/ctd.png')
         division = 'Credenz Tech Dayz';
-    else if(imgSrc==='/Question.png')
+    else if(imgSrc==='/Question.png'){
         division='question';
-    else if(imgSrc==='/iconLeader.png')
+        name = "Question Hub"
+    }
+    else if(imgSrc==='/iconLeader.png'){
         division='leaderboard';
-    else if(imgSrc==='/submissions.png')
+        name = "Leaderboard"
+    }
+    else if(imgSrc==='/submissions.png'){
         division='submission';
-    else
+        name = "Submissions"
+    }
+    else{
         division='result';
+        name = "Log Out"
+    }
     
     if(imgSrc==='/ctd.png'){
         return (
@@ -77,9 +59,9 @@ class NavDivs extends Component {
             return <Redirect push to={`/${division}`} />
         }
         return(
-            <div className='row links' onClick={() => this.handleClick()}>
+            <div className={`row links ${this.props.option}`} onClick={() => this.handleClick(division)}>
                 <img src={`${imgSrc}`} alt={`${division}`} style={styling}/>
-                <span>{division}</span>
+                <span>{name}</span>
             </div>
         )
     }

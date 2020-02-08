@@ -1,10 +1,42 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router";
 import TabBar from "./tabBar";
 import CPPUse from "./CPPUse/CPPUse";
+import "codemirror/lib/codemirror.js";
+import { Controlled as CodeMirror } from "react-codemirror2";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
+import "codemirror/mode/clike/clike";
+import "codemirror/addon/edit/closebrackets.js";
 
 class CodingPage extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      redirect: false
+    };
+  }
+
+  handleClick = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
   render() {
+    if (this.state.redirect === true) {
+      return <Redirect push to="/testcases" />;
+    }
+    let options = {
+      lineNumbers: true,
+      theme: "material",
+      mode: "text/x-c++src",
+      mode: "text/x-csrc",
+      styleActiveLine: true,
+      autoCloseBrackets: true,
+      matchBrackets: true
+    };
     return (
       <div className="col-sm-12">
         <div
@@ -33,7 +65,7 @@ class CodingPage extends Component {
             </div>
             <div
               style={{
-                height: "75vh",
+                height: "69vh",
                 width: "79vw",
                 marginTop: "2vh",
                 backgroundColor: "black",
@@ -48,10 +80,12 @@ class CodingPage extends Component {
                   <button
                     className="btn btn-dark"
                     style={{
-                      marginRight: "2vw",
-                      outline: "none",
+                      marginBottom: "1vh",
+                      marginLeft: "-5vw",
                       border: "none",
-                      marginTop: "1vh"
+                      marginTop: "1vh",
+                      width: "10vw",
+                      outline: "none !important"
                     }}
                   >
                     Browse File
@@ -59,37 +93,53 @@ class CodingPage extends Component {
                   <button
                     className="btn btn-dark"
                     style={{
+                      marginBottom: "1vh",
                       outline: "none",
                       border: "none",
-                      marginTop: "1vh"
+                      marginTop: "1vh",
+                      marginLeft: "1vw",
+                      marginRight: "1vw",
+                      width: "10vw"
                     }}
                   >
                     Load Buffer
                   </button>
                 </span>
               </span>
-              <textarea
-                name="codeEditor"
-                id=""
-                cols="150"
-                rows="20"
-                style={{ resize: "none", overflow: "hidden", marginTop: "1vh" }}
-              ></textarea>
+              <CodeMirror
+                value={this.state.value}
+                options={options}
+                onBeforeChange={(editor, data, value) => {
+                  this.setState({ value });
+                }}
+                onChange={(editor, data, value) => {}}
+                editorDidMount={editor => {
+                  editor.setSize("79vw", "55vh");
+                }}
+              />
               <span style={{ marginLeft: "63vw" }}>
                 <button
                   className="btn btn-dark"
                   style={{
-                    marginRight: "2vw",
+                    marginTop: "1.4vh",
+                    marginLeft: "-8vw",
                     outline: "none",
                     border: "none",
-                    width: "6vw"
+                    width: "10vw"
                   }}
+                  onClick={() => this.handleClick()}
                 >
                   Submit
                 </button>
                 <button
                   className="btn btn-dark"
-                  style={{ outline: "none", border: "none", width: "6vw" }}
+                  style={{
+                    marginTop: "1.4vh",
+                    outline: "none",
+                    border: "none",
+                    width: "10vw",
+                    marginLeft: "1vw"
+                  }}
                 >
                   Run
                 </button>

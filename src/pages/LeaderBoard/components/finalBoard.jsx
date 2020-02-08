@@ -12,7 +12,7 @@ class FinalBoard extends Component {
     this.state = {
       teams: [],
       teams1: [],
-      pageSize: 8,
+      pageSize: 9,
       currentPage: 1
     };
     this.handlePageChange = this.handlePageChange.bind(this);
