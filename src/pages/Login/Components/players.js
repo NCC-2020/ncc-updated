@@ -137,7 +137,6 @@ class players extends Component {
       positionPc2: "Upp"
     });
   }
-
   handleBlurPc2(e) {
     if (e.target.value === "") {
       this.setState({
@@ -175,7 +174,8 @@ class players extends Component {
     this.props.changeModeP();
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     var x1, x2, x3, x4, x5, x6;
     if (this.props.player1name === "") {
       x1 = 0;
@@ -233,7 +233,12 @@ class players extends Component {
       });
     } else {
       var content = this.props.player1email;
-      if (content.includes(".com") && content.includes("@")) {
+      if (
+        (content.includes(".com") ||
+          content.includes(".edu") ||
+          content.includes(".co.in")) &&
+        content.includes("@")
+      ) {
         x3 = 1;
         this.setState({
           errorpe1: "",
@@ -315,7 +320,12 @@ class players extends Component {
       });
     } else {
       var content = this.props.player2email;
-      if (content.includes(".com") && content.includes("@")) {
+      if (
+        (content.includes(".com") ||
+          content.includes(".edu") ||
+          content.includes(".co.in")) &&
+        content.includes("@")
+      ) {
         x6 = 1;
         this.setState({
           errorpe2: "",
@@ -342,7 +352,10 @@ class players extends Component {
         );
       }
     }
-    if (x1 === 1 && x2 === 1 && x3 === 1 && x4 === 1 && x5 === 1 && x6 === 1) {
+    if (
+      (x1 === 1 && x2 === 1 && x3 === 1 && x4 === 0 && x5 === 0 && x6 === 0) ||
+      (x1 === 1 && x2 === 1 && x3 === 1 && x4 === 1 && x5 === 1 && x6 === 1)
+    ) {
       this.props.changeModePL();
     }
   }
@@ -350,128 +363,130 @@ class players extends Component {
   render() {
     return (
       <div className={this.state.class}>
-        <div className="player1">
-          <div className="header">Player 1</div>
-          <div className="in1 inputbox">
-            <label className={`plname1 lab1 ${this.state.positionPn1}`}>
-              Name
-            </label>
-            <input
-              maxLength="50"
-              autoComplete="new-password"
-              type="text"
-              className={`text ${this.state.errorpn1}`}
-              onFocus={this.handleFocusPn1.bind(this)}
-              onBlur={this.handleBlurPn1.bind(this)}
-              onChange={this.pl1nameChange.bind(this)}
-              value={this.props.player1name}
-              spellCheck="false"
-            ></input>
+        <form>
+          <div className="player1">
+            <div className="header">Player 1</div>
+            <div className="in1 inputbox">
+              <label className={`plname1 lab1 ${this.state.positionPn1}`}>
+                Name
+              </label>
+              <input
+                maxLength="50"
+                autoComplete="new-password"
+                type="text"
+                className={`text ${this.state.errorpn1}`}
+                onFocus={this.handleFocusPn1.bind(this)}
+                onBlur={this.handleBlurPn1.bind(this)}
+                onChange={this.pl1nameChange.bind(this)}
+                value={this.props.player1name}
+                spellCheck="false"
+              ></input>
+            </div>
+            <div className="in2 inputbox">
+              <label
+                className={`plnum1 lab1 ${this.state.labelpc1color} ${this.state.positionPc1} `}
+              >
+                {this.state.labelpc1}
+              </label>
+              <input
+                maxLength="10"
+                autoComplete="new-password"
+                type="text"
+                className={`text ${this.state.errorpc1}`}
+                onFocus={this.handleFocusPc1.bind(this)}
+                onBlur={this.handleBlurPc1.bind(this)}
+                onChange={this.pl1contactChange.bind(this)}
+                value={this.props.player1contact}
+                spellCheck="false"
+              ></input>
+            </div>
+            <div className="in2 inputbox">
+              <label
+                className={`plemail1 lab1 ${this.state.positionPe1} ${this.state.labelpe1color}`}
+              >
+                {this.state.labelpe1}
+              </label>
+              <input
+                maxLength="50"
+                autoComplete="new-password"
+                type="text"
+                className={`text ${this.state.errorpe1}`}
+                onFocus={this.handleFocusPe1.bind(this)}
+                onBlur={this.handleBlurPe1.bind(this)}
+                onChange={this.pl1emailChange.bind(this)}
+                value={this.props.player1email}
+                spellCheck="false"
+              ></input>
+            </div>
           </div>
-          <div className="in2 inputbox">
-            <label
-              className={`plnum1 lab1 ${this.state.labelpc1color} ${this.state.positionPc1} `}
+          <div className="player2">
+            <div className="header">Player 2</div>
+            <div className="in1 inputbox">
+              <label className={`plname2 lab2 ${this.state.positionPn2}`}>
+                Name
+              </label>
+              <input
+                maxLength="50"
+                autoComplete="new-password"
+                type="text inputbox"
+                className={`text ${this.state.errorpn2}`}
+                onFocus={this.handleFocusPn2.bind(this)}
+                onBlur={this.handleBlurPn2.bind(this)}
+                onChange={this.pl2nameChange.bind(this)}
+                value={this.props.player2name}
+                spellCheck="false"
+              ></input>
+            </div>
+            <div className="in2 inputbox">
+              <label
+                className={`plnum2 lab2 ${this.state.positionPc2} ${this.state.labelpc2color}`}
+              >
+                {this.state.labelpc2}
+              </label>
+              <input
+                maxLength="10"
+                type="text"
+                className={`text ${this.state.errorpc2}`}
+                autoComplete="new-password"
+                onFocus={this.handleFocusPc2.bind(this)}
+                onBlur={this.handleBlurPc2.bind(this)}
+                onChange={this.pl2contactChange.bind(this)}
+                value={this.props.player2contact}
+                spellCheck="false"
+              ></input>
+            </div>
+            <div className="in2 inputbox">
+              <label
+                className={`plemail2 lab2 ${this.state.positionPe2} ${this.state.labelpe2color}`}
+              >
+                {this.state.labelpe2}
+              </label>
+              <input
+                maxLength="50"
+                type="text"
+                className={`text ${this.state.errorpe2}`}
+                autoComplete="new-password"
+                onFocus={this.handleFocusPe2.bind(this)}
+                onBlur={this.handleBlurPe2.bind(this)}
+                onChange={this.pl2emailChange.bind(this)}
+                value={this.props.player2email}
+                spellCheck="false"
+              ></input>
+            </div>
+          </div>
+          <div className="Footer">
+            <button className="back" onClick={this.handleBack.bind(this)}>
+              BACK
+            </button>
+            <button
+              type="submit"
+              className="LLogin"
+              onClick={this.handleClick.bind(this)}
             >
-              {this.state.labelpc1}
-            </label>
-            <input
-              maxLength="10"
-              autoComplete="new-password"
-              type="text"
-              className={`text ${this.state.errorpc1}`}
-              onFocus={this.handleFocusPc1.bind(this)}
-              onBlur={this.handleBlurPc1.bind(this)}
-              onChange={this.pl1contactChange.bind(this)}
-              value={this.props.player1contact}
-              spellCheck="false"
-            ></input>
+              LOGIN
+            </button>
           </div>
-          <div className="in2 inputbox">
-            <label
-              className={`plemail1 lab1 ${this.state.positionPe1} ${this.state.labelpe1color}`}
-            >
-              {this.state.labelpe1}
-            </label>
-            <input
-              maxLength="50"
-              autoComplete="new-password"
-              type="text"
-              className={`text ${this.state.errorpe1}`}
-              onFocus={this.handleFocusPe1.bind(this)}
-              onBlur={this.handleBlurPe1.bind(this)}
-              onChange={this.pl1emailChange.bind(this)}
-              value={this.props.player1email}
-              spellCheck="false"
-            ></input>
-          </div>
-        </div>
-        <div className="player2">
-          <div className="header">Player 2</div>
-          <div className="in1 inputbox">
-            <label className={`plname2 lab2 ${this.state.positionPn2}`}>
-              Name
-            </label>
-            <input
-              maxLength="50"
-              autoComplete="new-password"
-              type="text inputbox"
-              className={`text ${this.state.errorpn2}`}
-              onFocus={this.handleFocusPn2.bind(this)}
-              onBlur={this.handleBlurPn2.bind(this)}
-              onChange={this.pl2nameChange.bind(this)}
-              value={this.props.player2name}
-              spellCheck="false"
-            ></input>
-          </div>
-          <div className="in2 inputbox">
-            <label
-              className={`plnum2 lab2 ${this.state.positionPc2} ${this.state.labelpc2color}`}
-            >
-              {this.state.labelpc2}
-            </label>
-            <input
-              maxLength="10"
-              type="text"
-              className={`text ${this.state.errorpc2}`}
-              autoComplete="new-password"
-              onFocus={this.handleFocusPc2.bind(this)}
-              onBlur={this.handleBlurPc2.bind(this)}
-              onChange={this.pl2contactChange.bind(this)}
-              value={this.props.player2contact}
-              spellCheck="false"
-            ></input>
-          </div>
-          <div className="in2 inputbox">
-            <label
-              className={`plemail2 lab2 ${this.state.positionPe2} ${this.state.labelpe2color}`}
-            >
-              {this.state.labelpe2}
-            </label>
-            <input
-              maxLength="50"
-              type="text"
-              className={`text ${this.state.errorpe2}`}
-              autoComplete="new-password"
-              onFocus={this.handleFocusPe2.bind(this)}
-              onBlur={this.handleBlurPe2.bind(this)}
-              onChange={this.pl2emailChange.bind(this)}
-              value={this.props.player2email}
-              spellCheck="false"
-            ></input>
-          </div>
-        </div>
-        <div className="Footer">
-          <button className="back" onClick={this.handleBack.bind(this)}>
-            BACK
-          </button>
-          <button
-            type="submit"
-            className="LLogin"
-            onClick={this.handleClick.bind(this)}
-          >
-            LOGIN
-          </button>
-        </div>
+        </form>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import Header from "./Components/header";
 import Team from "./Components/team";
 import Players from "./Components/players";
 import "./styles/bootstrap.css";
+import { Redirect } from "react-router";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,9 +25,10 @@ class App extends React.Component {
       padd: "",
       minutes: 0,
       seconds: 0,
-      count: 600,
+      count: 60,
       width: 0,
-      colorBar: "#05a000"
+      colorBar: "#05a000",
+      redirect: false
     };
   }
 
@@ -115,6 +117,12 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      this.setState({
+        redirect: false
+      });
+      return <Redirect push to="/question" />;
+    }
     if (!this.state.mode) {
       return (
         <div className="teamParent">
@@ -210,12 +218,16 @@ class App extends React.Component {
       );
     }
   }
+
   componentDidMount() {
     this.myinterval = setInterval(() => {
       if (this.state.count === 0) {
         clearInterval(this.myinterval);
+        this.setState({
+          redirect: true
+        });
       }
-      var per = ((600 - this.state.count) / 600) * 100;
+      var per = ((60 - this.state.count) / 60) * 100;
       if (per < 70) {
         if (this.state.seconds < 11 && this.state.seconds > 0) {
           this.setState({

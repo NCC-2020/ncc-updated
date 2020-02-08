@@ -5,14 +5,14 @@
 
 .teamParent {
   height: 100vh;
-  background-image: url("/ff.svg");
+  background-image: url("/final.svg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .playerParent {
   height: 100vh;
-  background-image: url("/ff.svg");
+  background-image: url("/final.svg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
