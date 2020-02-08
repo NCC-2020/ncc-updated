@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../../mainComponents/Navbar";
 import Footer from "./components/footer";
 import Submissions from "./components/submissions";
+import Title from './../title';
 
 class App extends Component {
   state = {};
@@ -14,9 +15,7 @@ class App extends Component {
           <Navbar />
           <div className="col-sm-10">
             <div className="row" style={{ height: "7vh" }}>
-              <p className="pageTitle">
-                <u>Submissions</u>
-              </p>
+              <Title title="Submissions"/>
             </div>
             <div className="row" style={{ height: "86vh" }}>
               <div className="container">

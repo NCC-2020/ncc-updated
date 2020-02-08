@@ -6,7 +6,7 @@ import Pagination from "./common/Pagination";
 import Table from "./table";
 import Search from "./Search";
 import "./finalBoard.css";
-import Title from "../title"
+
 
 class FinalBoard extends Component {
   constructor(props) {

@@ -4,6 +4,7 @@ import Navbar from "../../mainComponents/Navbar";
 import Footer from "../LeaderBoard/components/footer";
 import Testcases from "./testcases";
 import "../Coding Page/App.css";
+import Title from './../title';
 
 class RenderTestPage extends Component {
   state = {};
@@ -14,9 +15,7 @@ class RenderTestPage extends Component {
           <Navbar />
           <div className="col-sm-10">
             <div className="row" style={{ height: "7vh" }}>
-              <p className="pageTitle">
-                <u>Testcases</u>
-              </p>
+              <Title title="Testcases"></Title>
             </div>
             <div className="row" style={{ height: "86vh" }}>
               <Testcases />
