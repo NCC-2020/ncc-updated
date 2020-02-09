@@ -57,7 +57,7 @@ class QuestionH extends Component {
                   </div>
                 </td>
                 <td>
-                  <Button />
+                  <Button Srno={question.sn} />
                 </td>
               </tr>
             ))}

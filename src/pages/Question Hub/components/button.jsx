@@ -1,31 +1,38 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { Redirect } from "react-router";
-import "./button.css"
-import './mytable.css'
+import "./button.css";
+import "./mytable.css";
+import { Link } from "react-router-dom";
 
 class Button extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            redirect: false
-        }
-    }
-    
-    handleClick = () => {
-        this.setState({
-            redirect: true
-        })
-    }
+  constructor(props) {
+    super(props);
 
-    render() { 
-        if(this.state.redirect === true){
-            return <Redirect push to="/coding" />
-        }
-        return ( 
-            <button className="butView" onClick={() => this.handleClick()} >View</button>
-        );
-    }
+    this.state = {
+      redirect: false
+    };
+  }
+
+  handleClick = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+
+  render() {
+    const newTo = {
+      pathname: "/coding",
+      param2: this.props.Srno
+    };
+    // if (this.state.redirect === true) {
+    //   return <Link to="/coding" />;
+    // }
+    return (
+      <Link to={newTo}>
+        <button className="butView">View</button>
+      </Link>
+    );
+  }
 }
- 
+
 export default Button;

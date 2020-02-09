@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 import "./submissions.css";
 import "bootstrap/dist/css/bootstrap.css";
+import { Link } from "react-router-dom";
 
 class Table extends Component {
   constructor(props) {
@@ -51,8 +52,8 @@ class Table extends Component {
   handleClick = () => {
     this.setState({
       redirect: true
-    })
-  }
+    });
+  };
 
   renderTableData() {
     return this.state.students.map((student, index) => {
@@ -65,6 +66,10 @@ class Table extends Component {
       } else {
         rate = "success";
       }
+      const newTo = {
+        pathname: "/coding",
+        param1: SrNo
+      };
       return (
         <tr key={SrNo}>
           <td>
@@ -77,7 +82,7 @@ class Table extends Component {
           </td>
           <td>
             <center>
-              <div className="progress" style={{height: "25px"}}>
+              <div className="progress" style={{ height: "25px" }}>
                 <div
                   className={"progress-bar progress-bar-striped bg-" + rate}
                   role="progressbar"
@@ -86,16 +91,18 @@ class Table extends Component {
                   aria-valuemin="0"
                   aria-valuemax="100"
                 >
-                <span className="show">{status}%</span>
+                  <span className="show">{status}%</span>
                 </div>
               </div>
             </center>
           </td>
           <td>
             <center>
-              <button className="btn btn-primary btn-sm" href="{response}" onClick={() => this.handleClick()}>
-                View
-              </button>
+              <Link to={newTo}>
+                <button className="btn btn-primary btn-sm" href="{response}">
+                  View
+                </button>
+              </Link>
             </center>
           </td>
         </tr>
@@ -104,14 +111,14 @@ class Table extends Component {
   }
 
   render() {
-    if(this.state.redirect === true){
-      this.setState({
-        redirect: false
-      })
-      return <Redirect push to="/coding" />
-    }
+    // if (this.state.redirect === true) {
+    //   this.setState({
+    //     redirect: false
+    //   });
+    //   return <Redirect push to="/coding" />;
+    // }
     return (
-      <div className="tablediv"  id="style-3">
+      <div className="tablediv" id="style-3">
         <table
           id="students"
           className="table table-striped table-dark table-hover"
