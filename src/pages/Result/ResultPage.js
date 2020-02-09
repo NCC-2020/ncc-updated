@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import DisplayText from "./resultComponents/DisplayText";
 import Chart from "./resultComponents/Chart";
 import Value from "./resultComponents/Value";
-import Footer from "./resultComponents/Footer";
+import Footer from "../../mainComponents/footer.jsx";
 import submissions from "./resultComponents/submissions";
 
 class App extends Component {

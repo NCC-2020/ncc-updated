@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../../mainComponents/Navbar";
-import Footer from "../LeaderBoard/components/footer";
+import Footer from "../../mainComponents/footer.jsx";
 import Testcases from "./testcases";
 import "../Coding Page/App.css";
-import Title from './../title';
+import Title from "./../title";
 
 class RenderTestPage extends Component {
   state = {};

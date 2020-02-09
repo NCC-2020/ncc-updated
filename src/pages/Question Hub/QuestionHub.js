@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./QuestionHub.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../../mainComponents/Navbar";
-import Footer from "./components/footer";
+import Footer from "../../mainComponents/footer.jsx";
 import QuestionH from "./components/MainTable";
-import Title from "./title"
+import Title from "./title";
 
 class QuestionHub extends Component {
   state = {};

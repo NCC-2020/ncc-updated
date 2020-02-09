@@ -3,19 +3,19 @@ import React from "react";
 const questions = [
   {
     sn: 1,
-    title: "Question 1",
+    title: "The foolish monkey",
     subm: 9,
     accuracy: "10%"
   },
   {
     sn: 2,
-    title: "Question 2",
+    title: "the foollish monkey again",
     subm: 3,
     accuracy: "20%"
   },
   {
     sn: 3,
-    title: "Question 3",
+    title: "Monkey and his candies",
     subm: 97,
     accuracy: "76%"
   },

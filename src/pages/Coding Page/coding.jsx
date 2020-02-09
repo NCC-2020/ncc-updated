@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../../mainComponents/Navbar";
-import Footer from "../LeaderBoard/components/footer";
+import Footer from "../../mainComponents/footer.jsx";
 import CodingPage from "./codingPage";
 
 class Coding extends Component {

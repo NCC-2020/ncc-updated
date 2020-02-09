@@ -82,9 +82,12 @@ class Table extends Component {
           </td>
           <td>
             <center>
-              <div className="progress" style={{ height: "25px" }}>
+              <div
+                className="progress"
+                style={{ height: "3.5vh", width: "17vw" }}
+              >
                 <div
-                  className={"progress-bar progress-bar-striped bg-" + rate}
+                  className={"progress-bar bg-" + rate}
                   role="progressbar"
                   style={{ width: status + "%" }}
                   aria-valuenow={status}
@@ -99,7 +102,7 @@ class Table extends Component {
           <td>
             <center>
               <Link to={newTo}>
-                <button className="btn btn-primary btn-sm" href="{response}">
+                <button className="butView" href="{response}">
                   View
                 </button>
               </Link>
