@@ -7,7 +7,7 @@ import "font-awesome/css/font-awesome.min.css";
 class Testcases extends Component {
   state = {
     result: "Running Testcases...",
-    testcases: ["pass", "pass", "fail", "fail", "fail", "fail"],
+    testcases: ["pass", "pass", "pass", "pass", "pass", "pass"],
     time : 0
   };
 
