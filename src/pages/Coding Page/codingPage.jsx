@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import TabBar from "./tabBar";
 import CPPUse from "./CPPUse/CPPUse";
 import Title from "../title";
+import Console from "./console";
 import "codemirror/lib/codemirror.js";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
@@ -15,10 +16,13 @@ class CodingPage extends Component {
     super(props);
 
     this.state = {
-      redirect: false
+      redirect: false,
+      renderConsole : false
     };
-  }
 
+   
+  }
+   
   passValue(val) {
     this.props.handlePassedValue(val);
   }
@@ -28,6 +32,13 @@ class CodingPage extends Component {
       redirect: true
     });
   };
+  
+  handleConsole=() => {
+    this.setState({
+      renderConsole: true
+    });
+ 
+  }
 
   render() {
     if (this.state.redirect === true) {
@@ -213,7 +224,8 @@ class CodingPage extends Component {
                 display: "block",
                 justifyContent: "center",
                 alignContent: "center",
-                borderRadius: "5px"
+                borderRadius: "5px",
+                
               }}
             >
               <span style={{ display: "flex" }}>
@@ -271,11 +283,13 @@ class CodingPage extends Component {
                     width: "10vw",
                     marginLeft: "1vw"
                   }}
+                  onClick = {this.handleConsole}
                 >
                   Run
                 </button>
               </span>
             </div>
+            <Console  render={this.state.renderConsole}/>
           </div>
         </div>
       </div>

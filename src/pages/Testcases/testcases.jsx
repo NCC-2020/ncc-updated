@@ -7,17 +7,32 @@ import "font-awesome/css/font-awesome.min.css";
 class Testcases extends Component {
   state = {
     result: "Running Testcases...",
-    testcases: ["pass", "pass", "fail", "fail", "fail", "fail"]
+    testcases: ["pass", "pass", "fail", "fail", "fail", "fail"],
+    time : 0
   };
 
+  
   numberBorder = testcase => {
+    
     let classes = "number ";
+    if(this.state.time<=150){
+    classes = classes + "border border-secondary";
+    return classes;
+    }
     classes =
       testcase === "pass"
         ? classes + "border border-success"
         : classes + "border border-danger";
     return classes;
   };
+
+  componentDidMount(){
+    let time =0;
+    setInterval(this.setTime=()=>{
+      time =time +1;
+      this.setState({time});
+    },40);
+  }
   render() {
     return (
       <div className="col-sm-12">
@@ -46,14 +61,13 @@ class Testcases extends Component {
               >
                 {this.state.testcases.map((testcase, index) => (
                   <div className="row" style={{ height: "8vh" }}>
-                    <div className="testcaseLines col-lg-2" />
+                    <div className="testcaseLines col-lg-2" />    
                     <div className={this.numberBorder(testcase)}>
-                      {index + 1}
+                      {index+1}
                     </div>
-                    <div className="testcase">
-                      <Testcase testcase={testcase} />
+                      <Testcase  testcase={testcase} />
                       {/* <span style={{marginLeft:"2vh"}}> &#10004;</span>  */}
-                    </div>
+                  
                   </div>
                 ))}
               </div>
@@ -74,7 +88,7 @@ class Testcases extends Component {
           className="row"
           style={{ display: "flex", justifyContent: "center", height: "28vh" }}
         >
-          <div className="col-lg-9">
+          <div className="col-lg-11">
             <textarea className="console" readOnly>
               Console
             </textarea>

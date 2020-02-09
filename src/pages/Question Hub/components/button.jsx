@@ -29,7 +29,7 @@ class Button extends Component {
     // }
     return (
       <Link to={newTo}>
-        <button className="butView">View</button>
+        <button className="butView">Attempt</button>
       </Link>
     );
   }

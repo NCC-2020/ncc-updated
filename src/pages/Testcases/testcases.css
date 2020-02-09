@@ -59,6 +59,7 @@
         border-radius:1vh;
         font-size:20px;
         box-shadow: 1px 1px 5px 0 #38393a;
+        background-color: rgb(72, 76, 83);
 }
 
 .retry{
@@ -82,6 +83,10 @@
 
 .bgd{
         background-color: rgb(148, 39, 36);
+}
+
+.bgload{
+        background-color: rgb(180, 229, 238);
 }
 .score{
         color:rgb(165, 230, 221);  

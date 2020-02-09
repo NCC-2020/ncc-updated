@@ -26,7 +26,7 @@ class QuestionH extends Component {
               <th>Title</th>
               <th>Submissions</th>
               <th>Accuracy</th>
-              <th>Attempt</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

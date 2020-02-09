@@ -66,6 +66,7 @@ class Navbar extends Component {
         <div className="row" style={{height:"8vh",display:'flex', justifyContent:'center', alignContent:'center'}}>
             <Score/>
         </div>
+        
         <NavDivs imgSrc="/Question.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classQue} />
         <NavDivs imgSrc="/iconLeader.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classLeader} />
         <NavDivs imgSrc="/submissions.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.8vw', marginRight:'0.7vw'}} changeColor={this.changeColor} option={this.state.classSub} />
