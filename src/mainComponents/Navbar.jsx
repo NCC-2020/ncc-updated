@@ -56,14 +56,15 @@ class Navbar extends Component {
     }
   }
 
-  render() { 
+  render() {
+    
     return ( 
       <div className="col-sm-2 navbar" style={{display:'block'}}>
         <NavDivs imgSrc="/ctd.png" styling={{height:'18vh', display:'flex', justifyContent:'center', alignContent:'center'}}/>
-        <div className='row timer' style={{height:'10vh'}}>
+        <div className='row timer' style={{height:'10vh',marginTop:"2vh"}}>
           <Timer />
         </div>
-        <div className="row" style={{height:"8vh",display:'flex', justifyContent:'center', alignContent:'center'}}>
+        <div className="row" style={{height:"15vh",display:'flex', justifyContent:'center', alignContent:'center'}}>
             <Score/>
         </div>
         

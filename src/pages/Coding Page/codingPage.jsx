@@ -55,9 +55,6 @@ class CodingPage extends Component {
     };
     return (
       <div className="col-sm-12">
-        <div className="row" style={{ height: "7vh" }}>
-          <Title title="Coding Page" />
-        </div>
         <div
           className="row"
           style={{

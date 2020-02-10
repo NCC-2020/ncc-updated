@@ -10,20 +10,9 @@ class Leaderboard extends Component {
   state = {};
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row" style={{ height: "93vh" }}>
-          <Navbar />
-          <div className="col-sm-10">
-            <div className="row" style={{ height: "7vh" }}>
-              <Title title="Leaderboard" />
-            </div>
-            <div className="row" style={{ height: "86vh" }}>
+      
               <FinalBoard />
-            </div>
-          </div>
-        </div>
-        <Footer />
-      </div>
+        
     );
   }
 }

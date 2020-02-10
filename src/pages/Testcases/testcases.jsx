@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./testcases.css";
 import Testcase from "./testcase";
 import CurrentScore from "./currentScore";
+import Title from '../title';
 import "font-awesome/css/font-awesome.min.css";
 
 class Testcases extends Component {

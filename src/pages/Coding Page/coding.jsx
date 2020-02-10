@@ -149,11 +149,6 @@ class Coding extends Component {
     //console.log(this.props.location.param2);
 
     return (
-      <div className="container-fluid">
-        <div className="row" style={{ height: "93vh" }}>
-          <Navbar />
-          <div className="col-sm-10">
-            <div className="row" style={{ height: "86vh" }}>
               <CodingPage
                 handlePassedValue={this.handlePassedValue.bind(this)}
                 class1={this.state.class1}
@@ -165,11 +160,7 @@ class Coding extends Component {
                 class7={this.state.class7}
                 class8={this.state.class8}
               />
-            </div>
-          </div>
-        </div>
-        <Footer />
-      </div>
+  
     );
   }
 }

@@ -121,6 +121,7 @@ class Table extends Component {
     //   return <Redirect push to="/coding" />;
     // }
     return (
+      
       <div className="tablediv" id="style-3">
         <table
           id="students"
@@ -132,6 +133,7 @@ class Table extends Component {
           </tbody>
         </table>
       </div>
+    
     );
   }
 }

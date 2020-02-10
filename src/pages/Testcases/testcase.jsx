@@ -33,17 +33,6 @@ class Testcase extends Component {
     
   }
 
-  numberBorder = testcase => {
-   
-    let classes = "number ";
-    classes =
-      testcase === "pass"
-        ? classes + "border border-success"
-        : classes + "border border-danger";
-    return classes;
-  };
-
-
   render() {
     return (
     
