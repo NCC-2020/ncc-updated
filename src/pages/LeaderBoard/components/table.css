@@ -21,13 +21,14 @@
   border: none;
   outline: none;
 }
-.sanTable thead tr:hover{
+.sanTable thead tr:hover {
   background-color: rgba(8, 8, 15, 0.8);
   color: whitesmoke;
   border-radius: 7px;
 }
-.sanTable tr:hover{
-  background-color: rgb(87, 210, 219);
-  color: black;
-  transition: 0.5s;
+.trans {
+  background-color: rgba(74, 74, 94, 0.8);
+  color: whitesmoke;
+  animation-name: blackWhite;
+  animation-duration: 1s;
 }

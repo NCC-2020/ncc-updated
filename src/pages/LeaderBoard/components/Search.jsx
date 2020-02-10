@@ -4,14 +4,10 @@ import "./Search.css";
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { search: "" };
-    this.Searching = this.Searching.bind(this);
   }
-  Searching(e) {
-    this.setState({ search: e.target.value });
-  }
+
   render() {
-    const { onSearch, teams } = this.props;
+    const { onSearch, teams, Searching, search } = this.props;
 
     return (
       <div className="row myrow">
@@ -21,12 +17,12 @@ class Search extends Component {
             className="form-control"
             id="filter"
             placeholder="Search..."
-            onChange={this.Searching}
+            onChange={Searching}
             autoComplete="off"
           />
         </span>
         <button
-          onClick={() => onSearch(this.state.search)}
+          onClick={() => onSearch(this.props.search)}
           className="btnSearch"
         >
           <img
