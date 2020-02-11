@@ -2,7 +2,7 @@
     background-image: linear-gradient(rgb(109, 170, 218),rgb(155, 218, 223));
 }
 .mainRow{
-    height: 93vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -13,7 +13,7 @@
 }
 #pageTitle{
     font-size: 32px;
-    margin-left: 5vw;
+    margin-left: 4vw;
     display: block;
 }
 .content{
@@ -22,16 +22,30 @@
     justify-content: center;
     border-radius: 10px;
 }
+.upper .col-sm-6{
+    width: 50vw;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    padding-left: 25px;
+}
+.lower .col-sm-6{
+    width: 50vw;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    padding-left: 25px;
+}
 .DisplayText{
     font-size: 28px;
     height: 8vh;
     text-align: center;
 }
 .chartHolder{
-    height: 49vh;
-    border: 3px solid darkblue;
+    height: 56vh;
     width: 90vw;
-    background-color: white;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .key{
     font-size: 25px;
@@ -39,14 +53,17 @@
     margin-left: 9vw;
 }
 #colorKey{
-    border: 1px solid black;
-    width: 3vw;
-    height: 3vh;
+    border: 2px solid black;
+    width: 4vw;
+    height: 4vh;
 }
 #colorText{
+    width: 20vw;
     height: 3vh;
+    padding-top: 0.6vh;
     margin-left: 1vw;
-    text-align: right;
+    text-align: left;
+    color: black;
 }
 .Value{
     display: flex;

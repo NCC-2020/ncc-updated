@@ -14,15 +14,15 @@ class Chart extends Component{
             <div className="chart">
                 <Bar
                     data={this.state.chartData}
-                    height={388}
+                    height={425}
                     options={{
                         maintainAspectRatio: false,
                         title: {
                             position: 'bottom',
                             display: true,
                             text: 'Time v/s Submissions Graph',
-                            fontSize: 25,
-                            fontColor: '#444'
+                            fontSize: 24,
+                            fontColor: '#333'
                         },
                         legend: {
                             position: 'top',
