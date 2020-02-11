@@ -37,7 +37,7 @@ class Testcases extends Component {
   render() {
     return (
       <div className="col-sm-12">
-        <div className="row" style={{ height: "55vh" }}>
+        <div className="row" style={{ height: "55vh" ,marginTop:"6vh"}}>
           <div className="col-lg-7" style={{ marginLeft: "4vw" }}>
             <div
               className="row"

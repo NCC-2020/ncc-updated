@@ -58,7 +58,7 @@ class CodingPage extends Component {
         <div
           className="row"
           style={{
-            height: "86vh",
+            height: "93vh",
             display: "flex",
             justifyContent: "center",
             alignContent: "center"

@@ -18,12 +18,18 @@ import Submissions from './pages/Submissions/components/submissions';
 class App extends Component {
   state = {  }
 
+  componentDidMount(){
+    var l = window.location.href;
+    console.log(l);
+  }
   render() { 
   
 
   return (
     
     <BrowserRouter>
+      <Route path="/result" component={Result} />
+      <Route exact path="/" component={Login} />
      <div className="container-fluid">
         <div className="row" style={{ height: "93vh" }}>
           <Navbar loc={this.props.location}/>
@@ -32,22 +38,22 @@ class App extends Component {
               <Title title="Testcases"></Title>
             </div> */}
             <div className="row" style={{ height: "93vh" }}>
-            <Switch>
-              <Route path="/result" component={Result} />
+            
+            
               <Route path="/leaderboard" component={Leaderboard} />
               <Route path="/submission" component={Submissions} />
               <Route path="/testcases" component={Testcases} />
               <Route path="/coding" component={Coding} />
               <Route path="/question" component={QuestionH} />
-              <Route path="/" component={Login} />
-              </Switch>
+         
+              
       
             </div>
           </div>
         </div>
         <Footer />
       </div>
-    
+      
     </BrowserRouter>
     
   );

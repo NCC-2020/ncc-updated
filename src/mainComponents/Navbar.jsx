@@ -33,7 +33,8 @@ class Navbar extends Component {
     this.state = {
       classSub: "",
       classQue: "",
-      classLeader: ""
+      classLeader: "",
+      classLog : ""
     }
   }
   
@@ -41,17 +42,34 @@ class Navbar extends Component {
     console.log(d);
     if(d==="question"){
       this.setState({
-        classQue: "selected"
+        classQue: "selected",
+        classSub : "",
+        classLeader : "",
+        classLog : ""
       })
     }
     else if(d==="leaderboard"){
       this.setState({
-        classLeader: "selected"
+        classLeader: "selected",
+        classQue : "",
+        classSub : "",
+        classLog : ""
       })
     }
     else if(d==="submission"){
       this.setState({
-        classSub: "selected"
+        classSub: "selected",
+        classQue : "",
+        classLeader : "",
+        classLog : ""
+      })
+    }
+    else {
+      this.setState({
+        classLog: "selected",
+        classQue : "",
+        classLeader : "",
+        classSub : ""
       })
     }
   }
@@ -71,7 +89,7 @@ class Navbar extends Component {
         <NavDivs imgSrc="/Question.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classQue} />
         <NavDivs imgSrc="/iconLeader.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classLeader} />
         <NavDivs imgSrc="/submissions.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.8vw', marginRight:'0.7vw'}} changeColor={this.changeColor} option={this.state.classSub} />
-        <NavDivs imgSrc="/logout.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classSub} />
+        <NavDivs imgSrc="/logout.png" styling={{height:'4vh', width: '2vw', marginLeft:'0.5vw', marginRight:'1vw'}} changeColor={this.changeColor} option={this.state.classLog} />
         <div className="row pisblogo">
           <img src="/logopisb.png" alt="PISB Logo" style={{height:'6vh', marginLeft:'2.5vw'}}/>
         </div>
