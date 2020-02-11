@@ -18,18 +18,15 @@ import Submissions from './pages/Submissions/components/submissions';
 class App extends Component {
   state = {  }
 
-  componentDidMount(){
-    var l = window.location.href;
-    console.log(l);
-  }
   render() { 
   
 
   return (
     
     <BrowserRouter>
+    <Switch>
       <Route path="/result" component={Result} />
-      <Route exact path="/" component={Login} />
+      <Route exact path="/" component={Login} /> 
      <div className="container-fluid">
         <div className="row" style={{ height: "93vh" }}>
           <Navbar loc={this.props.location}/>
@@ -53,6 +50,7 @@ class App extends Component {
         </div>
         <Footer />
       </div>
+      </Switch>
       
     </BrowserRouter>
     
