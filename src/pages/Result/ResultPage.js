@@ -5,6 +5,7 @@ import DisplayText from "./resultComponents/DisplayText";
 import Chart from "./resultComponents/Chart";
 import Value from "./resultComponents/Value";
 import submissions from "./resultComponents/submissions";
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
     });
   }
   render() {
+    console.log(this.props.teamName);
     return (
       <div className="container-fluid">
         <div className="row mainRow">
@@ -54,24 +56,26 @@ class App extends Component {
               <u>Result</u>
             </p>
           </div>
-          <div className="row content" style={{ marginLeft: "18vw", marginRight: "18vw" }}>
+          <div
+            className="row content"
+            style={{ marginLeft: "18vw", marginRight: "18vw" }}
+          >
             <div className="row upper">
               <div className="col-sm-6">
                 <DisplayText text="Team Name" border="false" />
-                <DisplayText text="Code Rapperz" border="true" />
+                <DisplayText text={this.props.teamName} border="true" />
               </div>
-              <div className="col-sm-6" style={{paddingRight:'25px'}}>
+              <div className="col-sm-6" style={{ paddingRight: "25px" }}>
                 <DisplayText text="Rank" border="false" />
                 <DisplayText text="7" border="true" />
               </div>
             </div>
             <div className="row lower">
-              <div
-                className="col-sm-6">
+              <div className="col-sm-6">
                 <DisplayText text="Questions Attempted" border="false" />
                 <DisplayText text="6" border="true" />
               </div>
-              <div className="col-sm-6" style={{paddingRight: "25px"}}>
+              <div className="col-sm-6" style={{ paddingRight: "25px" }}>
                 <DisplayText text="Score" border="false" />
                 <DisplayText text="400" border="true" />
               </div>
@@ -91,7 +95,10 @@ class App extends Component {
                 <Value color="rgba(90, 255, 100, 0.95)" text="Accepted" />
                 <Value color="rgba(255, 54, 70, 0.95)" text="Wrong Answer" />
                 <Value color="rgba(255, 206, 86, 0.95)" text="TLE" />
-                <Value color="rgba(75, 192, 240, 0.95)" text="Abnormal Termination"/>
+                <Value
+                  color="rgba(75, 192, 240, 0.95)"
+                  text="Abnormal Termination"
+                />
                 <Value color="rgba(153, 102, 255, 0.95)" text="Runtime Error" />
               </React.Fragment>
             </div>
@@ -101,5 +108,9 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = state => {
+  return {
+    teamName: state.userName
+  };
+};
+export default connect(mapStateToProps)(App);

@@ -25,7 +25,7 @@ class App extends React.Component {
       padd: "",
       minutes: 0,
       seconds: 0,
-      count: 900,
+      count: 60,
       width: 0,
       colorBar: "#05a000",
       redirect: false
@@ -222,7 +222,7 @@ class App extends React.Component {
           redirect: true
         });
       }
-      var per = ((900 - this.state.count) / 900) * 100;
+      var per = ((60 - this.state.count) / 60) * 100;
       if (per < 70) {
         if (this.state.seconds < 11 && this.state.seconds > 0) {
           this.setState({

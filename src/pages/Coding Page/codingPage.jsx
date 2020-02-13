@@ -18,8 +18,10 @@ class CodingPage extends Component {
 
     this.state = {
       redirect: false,
-      renderConsole: false
+      renderConsole: false,
+      value: ""
     };
+    let fileReader;
   }
 
   passValue(val) {
@@ -37,7 +39,18 @@ class CodingPage extends Component {
       renderConsole: true
     });
   };
-
+  handleFileRead = e => {
+    const content = this.fileReader.result;
+    console.log(content);
+    this.setState({
+      value: content
+    });
+  };
+  handleChange = file => {
+    this.fileReader = new FileReader();
+    this.fileReader.onloadend = this.handleFileRead;
+    this.fileReader.readAsText(file);
+  };
   render() {
     if (this.state.redirect === true) {
       return <Redirect push to="/testcases" />;
@@ -107,7 +120,12 @@ class CodingPage extends Component {
               <span style={{ display: "flex" }}>
                 <CPPUse />
                 <span style={{ marginLeft: "40vw" }}>
-                  <input type="file" id="file" />
+                  <input
+                    type="file"
+                    id="file"
+                    onChange={e => this.handleChange(e.target.files[0])}
+                    accept=".cpp"
+                  />
                   <label for="file">Choose file</label>
                   <button
                     className="btn btn-dark"
