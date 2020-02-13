@@ -7,15 +7,6 @@
     justify-content: center;
     align-content: center;
 }
-.pageTitle{
-    height: 7vh;
-    width: 100vw;
-}
-#pageTitle{
-    font-size: 32px;
-    margin-left: 4vw;
-    display: block;
-}
 .content{
     height: 35vh;
     display: flex;
@@ -45,7 +36,8 @@
     height: 56vh;
     width: 90vw;
     border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(8, 8, 15, 0.8);
+    margin-top: 3vh;
 }
 .key{
     font-size: 25px;

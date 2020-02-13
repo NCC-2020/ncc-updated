@@ -16,31 +16,58 @@ class Chart extends Component{
                     data={this.state.chartData}
                     height={425}
                     options={{
+                        showScale: true,
                         maintainAspectRatio: false,
                         title: {
                             position: 'bottom',
                             display: true,
-                            text: 'Time v/s Submissions Graph',
+                            text: 'Number of Teams v/s Scoring Range',
                             fontSize: 24,
-                            fontColor: '#333'
+                            fontColor: 'white'
                         },
                         legend: {
                             position: 'top',
                             labels: {
-                                fontColor: 'black',
+                                fontColor: 'white',
                                 fontSize: 18
-                            }
+                            },
+                            onClick: (e) => e.stopPropagation()
                         },
                         layout: {
                             padding: {
                                 left: 0,
                                 right: 0,
                                 bottom: 0,
-                                top: 10
+                                top: 15
                             }
                         },
                         tooltips: {
                             enabled: true
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 15,
+                                    stepSize: 3,
+                                    fontColor: "white",
+                                    fontSize: "15"
+                                },
+                                gridLines: {
+                                    zeroLineColor: "white",
+                                    color: "#777"
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: "white",
+                                    fontSize: "15"
+                                },
+                                gridLines: {
+                                    color: "#777",
+                                    zeroLineColor: "#777"
+                                }
+                            }]
                         }
                     }}
                 />

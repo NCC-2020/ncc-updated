@@ -34,7 +34,7 @@ class CPPUse extends Component {
               className={`CLang ${this.state.classC}`}
               onClick={this.handleClickC.bind(this)}
             >
-              <a>C</a>
+              <a href="##">C</a>
             </li>
           </div>
           <div className="CppDiv">
@@ -42,7 +42,7 @@ class CPPUse extends Component {
               className={`CppLang ${this.state.classCpp}`}
               onClick={this.handleClickCpp.bind(this)}
             >
-              <a>C++</a>
+              <a href="##">C++</a>
             </li>
           </div>
         </ul>

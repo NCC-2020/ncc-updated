@@ -1,5 +1,3 @@
-import React from "react";
-
 const questions = [
   {
     sn: 1,

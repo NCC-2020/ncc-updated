@@ -290,9 +290,9 @@ class players extends Component {
         errorpc2: "Border"
       });
     } else {
-      var x = this.props.player2contact;
-      var y = parseInt(x);
-      var z = 0;
+      x = this.props.player2contact;
+      y = parseInt(x);
+      z = 0;
       if (y / 1000000000 < 6) {
         z = 1;
       }
@@ -326,7 +326,7 @@ class players extends Component {
         errorpe2: "Border"
       });
     } else {
-      var content = this.props.player2email;
+      content = this.props.player2email;
       if (
         (content.includes(".com") ||
           content.includes(".edu") ||

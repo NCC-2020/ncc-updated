@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import "./button.css";
 import "./mytable.css";
 import { Link } from "react-router-dom";

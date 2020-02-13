@@ -9,7 +9,7 @@ export default function DisplayText(props) {
         )
     else
         return (
-            <div className="DisplayText" style={{paddingTop: "2vh"}}>
+            <div className="DisplayText" style={{paddingTop: "1.5vh"}}>
                 {props.text}
             </div>
         )

@@ -1,6 +1,6 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import _ from "lodash";
 import Login from "./pages/Login/Login";
