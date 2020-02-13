@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/players.css";
+import { connect } from "react-redux";
 
 class players extends Component {
   constructor(props) {
@@ -38,26 +39,32 @@ class players extends Component {
 
   pl1nameChange(e) {
     this.props.updateValues("player1name", e.target.value);
+    this.props.changePlayer1Name(e.target.value);
   }
 
   pl1contactChange(e) {
     this.props.updateValues("player1contact", e.target.value);
+    this.props.changePlayer1Contact(e.target.value);
   }
 
   pl1emailChange(e) {
     this.props.updateValues("player1email", e.target.value);
+    this.props.changePlayer1Email(e.target.value);
   }
 
   pl2nameChange(e) {
     this.props.updateValues("player2name", e.target.value);
+    this.props.changePlayer2Name(e.target.value);
   }
 
   pl2contactChange(e) {
     this.props.updateValues("player2contact", e.target.value);
+    this.props.changePlayer2Contact(e.target.value);
   }
 
   pl2emailChange(e) {
     this.props.updateValues("player2email", e.target.value);
+    this.props.changePlayer2Email(e.target.value);
   }
 
   handleFocusPn1() {
@@ -378,7 +385,7 @@ class players extends Component {
                 onFocus={this.handleFocusPn1.bind(this)}
                 onBlur={this.handleBlurPn1.bind(this)}
                 onChange={this.pl1nameChange.bind(this)}
-                value={this.props.player1name}
+                value={this.props.player1Name}
                 spellCheck="false"
               ></input>
             </div>
@@ -396,7 +403,7 @@ class players extends Component {
                 onFocus={this.handleFocusPc1.bind(this)}
                 onBlur={this.handleBlurPc1.bind(this)}
                 onChange={this.pl1contactChange.bind(this)}
-                value={this.props.player1contact}
+                value={this.props.player1Contact}
                 spellCheck="false"
               ></input>
             </div>
@@ -414,7 +421,7 @@ class players extends Component {
                 onFocus={this.handleFocusPe1.bind(this)}
                 onBlur={this.handleBlurPe1.bind(this)}
                 onChange={this.pl1emailChange.bind(this)}
-                value={this.props.player1email}
+                value={this.props.player1Email}
                 spellCheck="false"
               ></input>
             </div>
@@ -433,7 +440,7 @@ class players extends Component {
                 onFocus={this.handleFocusPn2.bind(this)}
                 onBlur={this.handleBlurPn2.bind(this)}
                 onChange={this.pl2nameChange.bind(this)}
-                value={this.props.player2name}
+                value={this.props.player2Name}
                 spellCheck="false"
               ></input>
             </div>
@@ -451,7 +458,7 @@ class players extends Component {
                 onFocus={this.handleFocusPc2.bind(this)}
                 onBlur={this.handleBlurPc2.bind(this)}
                 onChange={this.pl2contactChange.bind(this)}
-                value={this.props.player2contact}
+                value={this.props.player2Contact}
                 spellCheck="false"
               ></input>
             </div>
@@ -469,7 +476,7 @@ class players extends Component {
                 onFocus={this.handleFocusPe2.bind(this)}
                 onBlur={this.handleBlurPe2.bind(this)}
                 onChange={this.pl2emailChange.bind(this)}
-                value={this.props.player2email}
+                value={this.props.player2Email}
                 spellCheck="false"
               ></input>
             </div>
@@ -492,4 +499,56 @@ class players extends Component {
   }
 }
 
-export default players;
+const mapStateToProps = state => {
+  return {
+    player1Name: state.player1Name,
+    player1Contact: state.player1Contact,
+    player1Email: state.player1Email,
+    player2Name: state.player2Name,
+    player2Contact: state.player2Contact,
+    player2Email: state.player2Email
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changePlayer1Name: player1Name => {
+      dispatch({
+        type: "CHANGE_PLAYER1NAME",
+        player1Name: player1Name
+      });
+    },
+    changePlayer1Contact: player1Contact => {
+      dispatch({
+        type: "CHANGE_PLAYER1CONTACT",
+        player1Contact: player1Contact
+      });
+    },
+    changePlayer1Email: player1Email => {
+      dispatch({
+        type: "CHANGE_PLAYER1EMAIL",
+        player1Email: player1Email
+      });
+    },
+    changePlayer2Name: player2Name => {
+      dispatch({
+        type: "CHANGE_PLAYER2NAME",
+        player2Name: player2Name
+      });
+    },
+    changePlayer2Contact: player2Contact => {
+      dispatch({
+        type: "CHANGE_PLAYER2CONTACT",
+        player2Contact: player2Contact
+      });
+    },
+    changePlayer2Email: player2Email => {
+      dispatch({
+        type: "CHANGE_PLAYER2EMAIL",
+        player2Email: player2Email
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(players);

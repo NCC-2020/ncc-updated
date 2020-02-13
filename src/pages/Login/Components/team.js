@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/team.css";
+import { connect } from "react-redux";
 
 class team extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class team extends Component {
     this.setState({
       password: e.target.value
     });
+    this.props.changePassWord(e.target.value);
   }
 
   checkTeamname(value) {
@@ -85,6 +87,7 @@ class team extends Component {
     this.setState({
       teamname: e.target.value
     });
+    this.props.changeUsername(e.target.value);
   }
 
   handleClick() {
@@ -122,6 +125,7 @@ class team extends Component {
   }
 
   render() {
+    console.log(this.props.userName, this.props.passWord);
     return (
       <div className={`team entry ${this.state.exit}`}>
         <div className="reg">Register</div>
@@ -134,7 +138,7 @@ class team extends Component {
             onFocus={this.handleFocust.bind(this)}
             onBlur={this.handleBlurt.bind(this)}
             onChange={this.handleTeamChange.bind(this)}
-            value={this.props.team}
+            value={this.props.userName}
             spellCheck="false"
           ></input>
           <p className="teamCheck">{this.props.checkt}</p>
@@ -148,7 +152,7 @@ class team extends Component {
             onFocus={this.handleFocusp.bind(this)}
             onBlur={this.handleBlurp.bind(this)}
             onChange={this.handlePassChange.bind(this)}
-            value={this.props.pass}
+            value={this.props.passWord}
             spellCheck="false"
           ></input>
         </div>
@@ -183,4 +187,28 @@ class team extends Component {
   }
 }
 
-export default team;
+const mapStateToProps = state => {
+  return {
+    userName: state.userName,
+    passWord: state.password
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeUsername: userName => {
+      dispatch({
+        type: "CHANGE_USERNAME",
+        username: userName
+      });
+    },
+    changePassWord: passWord => {
+      dispatch({
+        type: "CHANGE_PASSWORD",
+        password: passWord
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(team);
