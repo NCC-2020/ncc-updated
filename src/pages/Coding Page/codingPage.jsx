@@ -23,14 +23,13 @@ class CodingPage extends Component {
     };
     let fileReader;
     this.console = React.createRef();
-    
-
   }
 
   componentDidUpdate(){
     if(this.state.renderConsole===true)
     this.console.current.scrollIntoView({ behavior: "smooth" })
   }
+  
   passValue(val) {
     this.props.handlePassedValue(val);
   }
@@ -39,6 +38,7 @@ class CodingPage extends Component {
     this.setState({
       redirect: true
     });
+    this.setState({renderConsole:false})
   };
   
   handleConsole = () => {
@@ -74,7 +74,6 @@ class CodingPage extends Component {
     return (
      
       <div  className="col-sm-12">
-         <div ></div>
         <div
           className="row"
           style={{
