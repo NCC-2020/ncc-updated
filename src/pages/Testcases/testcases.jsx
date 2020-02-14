@@ -3,6 +3,7 @@ import "./testcases.css";
 import Testcase from "./testcase";
 import CurrentScore from "./currentScore";
 import Title from '../title';
+import { connect } from "react-redux";
 import "font-awesome/css/font-awesome.min.css";
 
 class Testcases extends Component {
@@ -100,4 +101,14 @@ class Testcases extends Component {
   }
 }
 
-export default Testcases;
+const mapStateToProps = state => {
+  return  {
+
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Testcases);
