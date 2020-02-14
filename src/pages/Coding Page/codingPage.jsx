@@ -22,8 +22,15 @@ class CodingPage extends Component {
       value: ""
     };
     let fileReader;
+    this.console = React.createRef();
+    
+
   }
 
+  componentDidUpdate(){
+    if(this.state.renderConsole===true)
+    this.console.current.scrollIntoView({ behavior: "smooth" })
+  }
   passValue(val) {
     this.props.handlePassedValue(val);
   }
@@ -33,7 +40,7 @@ class CodingPage extends Component {
       redirect: true
     });
   };
-
+  
   handleConsole = () => {
     this.setState({
       renderConsole: true
@@ -65,7 +72,9 @@ class CodingPage extends Component {
       matchBrackets: true
     };
     return (
-      <div className="col-sm-12">
+     
+      <div  className="col-sm-12">
+         <div ></div>
         <div
           className="row"
           style={{
@@ -87,8 +96,8 @@ class CodingPage extends Component {
             class8={this.props.class8}
           />
           <div className="mainTab scroller" id="style-1">
-            <div
-              className="questionArea scroller p-3"
+            <div 
+               className="questionArea scroller p-3"
               style={{
                 height: "60vh",
                 width: "79vw",
@@ -182,8 +191,10 @@ class CodingPage extends Component {
                   Run
                 </button>
               </span>
-            </div>
-            <Console render={this.state.renderConsole} />
+            </div >
+            <div ref={this.console} >
+            <Console   render={this.state.renderConsole} />
+             </div>     
           </div>
         </div>
       </div>

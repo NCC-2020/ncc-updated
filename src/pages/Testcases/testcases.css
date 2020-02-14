@@ -58,8 +58,8 @@
         width:13vw;
         border-radius:1vh;
         font-size:20px;
-        box-shadow: 1px 1px 5px 0 #38393a;
-        background-color: rgb(72, 76, 83);
+        /* box-shadow: 1px 1px 5px 0 #38393a; */
+        background-color:  rgba(255, 255, 255, 0.452);;
 }
 
 .retry{
@@ -86,7 +86,7 @@
 }
 
 .bgload{
-        background-color: rgb(63, 164, 182);
+        background-color: rgb(72, 76, 83);
 }
 .score{
         color:rgb(165, 230, 221);  

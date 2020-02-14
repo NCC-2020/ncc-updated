@@ -2,6 +2,7 @@ import React from 'react';
 
 const Console =(props) => {
       
+    
     if(props.render===true)
     return ( 
         
