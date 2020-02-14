@@ -8,54 +8,43 @@ import Leaderboard from "./pages/LeaderBoard/leaderboard";
 import QuestionH from "./pages/Question Hub/components/MainTable";
 import Result from "./pages/Result/ResultPage";
 import Coding from "./pages/Coding Page/coding";
-import Navbar from './mainComponents/Navbar';
-import Footer from './mainComponents/footer';
+import Navbar from "./mainComponents/Navbar";
+import Footer from "./mainComponents/footer";
 
-import Testcases from './pages/Testcases/testcases';
-import Submissions from './pages/Submissions/components/submissions';
-
+import Testcases from "./pages/Testcases/testcases";
+import SubmissionPage from "./pages/Submissions/SubmissionPage";
 
 class App extends Component {
-  state = {  }
+  state = {};
 
-  render() { 
-  
-
-  return (
-    
-    <BrowserRouter>
-    <Switch>
-      <Route path="/result" component={Result} />
-      <Route exact path="/" component={Login} /> 
-     <div className="container-fluid">
-        <div className="row" style={{ height: "93vh" }}>
-          <Navbar loc={this.props.location}/>
-          <div className="col-sm-10">
-            {/* <div className="row" style={{ height: "7vh" }}>
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route path="/result" component={Result} />
+          <Route exact path="/" component={Login} />
+          <div className="container-fluid">
+            <div className="row" style={{ height: "93vh" }}>
+              <Navbar loc={this.props.location} />
+              <div className="col-sm-10">
+                {/* <div className="row" style={{ height: "7vh" }}>
               <Title title="Testcases"></Title>
             </div> */}
-            <div className="row" style={{ height: "93vh" }}>
-            
-            
-              <Route path="/leaderboard" component={Leaderboard} />
-              <Route path="/submission" component={Submissions} />
-              <Route path="/testcases" component={Testcases} />
-              <Route path="/coding" component={Coding} />
-              <Route path="/question" component={QuestionH} />
-         
-              
-      
+                <div className="row" style={{ height: "93vh" }}>
+                  <Route path="/leaderboard" component={Leaderboard} />
+                  <Route path="/submission" component={SubmissionPage} />
+                  <Route path="/testcases" component={Testcases} />
+                  <Route path="/coding" component={Coding} />
+                  <Route path="/question" component={QuestionH} />
+                </div>
+              </div>
             </div>
+            <Footer />
           </div>
-        </div>
-        <Footer />
-      </div>
-      </Switch>
-      
-    </BrowserRouter>
-    
-  );
-          };
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,9 @@
+.sTable {
+  margin-top: 22vh;
+}
+.page {
+  margin: auto;
+}
+.pagination {
+  box-shadow: -2px -2px 4px #ffffff73, 2px 2px 4px rgba(94, 104, 121, 0.288);
+}
