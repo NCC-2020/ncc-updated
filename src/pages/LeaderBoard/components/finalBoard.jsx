@@ -70,7 +70,7 @@ class FinalBoard extends Component {
     const { pageSize, currentPage, teams, search } = this.state;
     const newTable = paginate(teams, currentPage, pageSize);
     return (
-      <main className="container">
+      <main className="container nicheJaa">
         <div className="row">
           <div className="row" style={{ margin: "8vh" }}>
             <Search

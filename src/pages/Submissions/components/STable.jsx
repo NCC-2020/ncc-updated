@@ -7,7 +7,7 @@ class MoviesTable extends Component {
     { path: "qn", label: "Question" },
     { path: "title", label: "Title" },
     { path: "time", label: "Time" },
-    { path: "status", label: "Status" },
+    { path: "status", label: "Success Rate" },
     { path: "response", label: "Response" }
   ];
 

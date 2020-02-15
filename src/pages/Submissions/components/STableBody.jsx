@@ -31,7 +31,7 @@ class STableBody extends Component {
             <Link to="/coding">
               <button
                 className="butView"
-                style={{ marginLeft: "-14vw", marginTop: "1vh" }}
+                style={{ marginLeft: "-9.1vw", marginTop: "1vh" }}
               >
                 View
               </button>

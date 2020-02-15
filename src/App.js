@@ -10,7 +10,7 @@ import Result from "./pages/Result/ResultPage";
 import Coding from "./pages/Coding Page/coding";
 import Navbar from "./mainComponents/Navbar";
 import Footer from "./mainComponents/footer";
-
+import Modal from "./mainComponents/modal";
 import Testcases from "./pages/Testcases/testcases";
 import SubmissionPage from "./pages/Submissions/SubmissionPage";
 
@@ -31,6 +31,7 @@ class App extends Component {
               <Title title="Testcases"></Title>
             </div> */}
                 <div className="row" style={{ height: "93vh" }}>
+                  <Route exact path="/modal" component={Modal}></Route>
                   <Route path="/leaderboard" component={Leaderboard} />
                   <Route path="/submission" component={SubmissionPage} />
                   <Route path="/testcases" component={Testcases} />

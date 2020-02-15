@@ -136,14 +136,16 @@ class CodingPage extends Component {
                     onChange={e => this.handleChange(e.target.files[0])}
                     accept=".cpp"
                   />
-                  <label for="file">Choose file</label>
+                  <label for="file" style={{ marginTop: "1vh" }}>
+                    Choose file
+                  </label>
                   <button
                     className="btn btn-dark"
                     style={{
                       marginBottom: "1vh",
                       outline: "none",
                       border: "none",
-                      marginTop: "1vh",
+                      marginTop: "0.2vh",
                       marginLeft: "1vw",
                       marginRight: "1vw",
                       width: "10vw"
