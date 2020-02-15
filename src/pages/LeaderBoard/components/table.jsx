@@ -12,9 +12,7 @@ class MoviesTable extends Component {
     { path: "q4", label: "Q4" },
     { path: "q5", label: "Q5" },
     { path: "q6", label: "Q6" },
-    { path: "q7", label: "Q7" },
-    { path: "q8", label: "Q8" },
-    { path: "Score", label: "Score" }
+    { path: "score", label: "Score" }
   ];
 
   render() {

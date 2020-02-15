@@ -6,6 +6,7 @@ import Pagination from "./common/Pagination";
 import Table from "./table";
 import Search from "./Search";
 import "./finalBoard.css";
+import axios from "axios";
 
 class FinalBoard extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class FinalBoard extends Component {
       teams1: [],
       pageSize: 9,
       currentPage: 1,
-      search: ""
+      search: "",
+      post: null
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.onSearch = this.onSearch.bind(this);
@@ -23,11 +25,35 @@ class FinalBoard extends Component {
 
     this.Searching = this.Searching.bind(this);
   }
-  componentDidMount() {
+  async componentDidMount() {
+    let Resp;
+
+    const url = "http://sanket212000.pythonanywhere.com/leaderboard/";
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data[0]);
+
     this.setState({
-      teams1: getDataBase(),
-      teams: getDataBase()
+      teams: data,
+      teams1: data,
+      post: "fetched"
     });
+    console.log(this.state.teams[0].score);
+    // axios
+    //   .get("http://sanket212000.pythonanywhere.com/leaderboard/")
+    //   .then(response => {
+    //     console.log(response.data);
+
+    //     this.setState({
+    //       teams: response.data,
+    //       teams1: response.data
+
+    //     });
+
+    //   });
+    // console.log(Resp);
+
+    //console.log(this.state.teams);
   }
   componentDidUpdate() {
     this.state.teams.forEach(item => {
@@ -53,11 +79,11 @@ class FinalBoard extends Component {
   }
   onSearch = val => {
     const updateState = this.state;
-    this.state.teams.forEach(item => {
+    this.state.teams.forEach((item, index) => {
       if (item.teamName === val) {
         //console.log(item.rank);
         updateState.currentPage =
-          Math.floor(item.rank / this.state.pageSize) + 1;
+          Math.floor((index + 1) / this.state.pageSize) + 1;
         item.color = "trans";
       }
     });
@@ -65,31 +91,37 @@ class FinalBoard extends Component {
     this.setState({ state: updateState });
   };
   render() {
-    console.log(this.state.teams);
-    const { length: count } = this.state.teams; //Object Destructuring
-    const { pageSize, currentPage, teams, search } = this.state;
-    const newTable = paginate(teams, currentPage, pageSize);
-    return (
-      <main className="container nicheJaa">
-        <div className="row">
-          <div className="row" style={{ margin: "8vh" }}>
-            <Search
-              teams={teams}
-              onSearch={this.onSearch}
-              search={search}
-              Searching={this.Searching}
+    if (this.state.post === null) return null;
+    else {
+      console.log(this.state.teams[5].score);
+      this.state.teams.forEach((item, index) => {
+        item.rank = index + 1;
+      });
+      //const { length: count } = this.state.teams; //Object Destructuring
+      const { pageSize, currentPage, teams, search } = this.state;
+      const newTable = paginate(teams, currentPage, pageSize);
+      return (
+        <main className="container nicheJaa">
+          <div className="row">
+            <div className="row" style={{ margin: "8vh" }}>
+              <Search
+                teams={teams}
+                onSearch={this.onSearch}
+                search={search}
+                Searching={this.Searching}
+              />
+            </div>
+            <Table teams={teams} newTable={newTable} search={search} />
+            <Pagination
+              itemsCount={teams.length}
+              pageSize={pageSize}
+              onPageChange={this.handlePageChange}
+              currentPage={currentPage}
             />
           </div>
-          <Table teams={teams} newTable={newTable} search={search} />
-          <Pagination
-            itemsCount={teams.length}
-            pageSize={pageSize}
-            onPageChange={this.handlePageChange}
-            currentPage={currentPage}
-          />
-        </div>
-      </main>
-    );
+        </main>
+      );
+    }
   }
 }
 
