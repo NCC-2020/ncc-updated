@@ -174,7 +174,8 @@ class players extends Component {
     }
   }
 
-  handleBack() {
+  handleBack(e) {
+    e.preventDefault();
     this.setState({
       class: "dissolve"
     });

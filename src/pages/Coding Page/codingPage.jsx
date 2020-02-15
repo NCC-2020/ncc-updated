@@ -25,22 +25,25 @@ class CodingPage extends Component {
     this.console = React.createRef();
   }
 
-  componentDidUpdate(){
-    if(this.state.renderConsole===true)
-    this.console.current.scrollIntoView({ behavior: "smooth" })
+  componentDidUpdate() {
+    if (this.state.renderConsole === true)
+      this.console.current.scrollIntoView({ behavior: "smooth" });
   }
-  
+
   passValue(val) {
     this.props.handlePassedValue(val);
+    this.setState({
+      renderConsole: false
+    });
   }
 
   handleClick = () => {
     this.setState({
       redirect: true
     });
-    this.setState({renderConsole:false})
+    this.setState({ renderConsole: false });
   };
-  
+
   handleConsole = () => {
     this.setState({
       renderConsole: true
@@ -72,8 +75,7 @@ class CodingPage extends Component {
       matchBrackets: true
     };
     return (
-     
-      <div  className="col-sm-12">
+      <div className="col-sm-12">
         <div
           className="row"
           style={{
@@ -95,8 +97,8 @@ class CodingPage extends Component {
             class8={this.props.class8}
           />
           <div className="mainTab scroller" id="style-1">
-            <div 
-               className="questionArea scroller p-3"
+            <div
+              className="questionArea scroller p-3"
               style={{
                 height: "60vh",
                 width: "79vw",
@@ -190,10 +192,10 @@ class CodingPage extends Component {
                   Run
                 </button>
               </span>
-            </div >
-            <div ref={this.console} >
-            <Console   render={this.state.renderConsole} />
-             </div>     
+            </div>
+            <div ref={this.console}>
+              <Console render={this.state.renderConsole} />
+            </div>
           </div>
         </div>
       </div>

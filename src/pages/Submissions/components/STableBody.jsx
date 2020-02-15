@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 
 class STableBody extends Component {
   constructor() {
@@ -27,12 +28,14 @@ class STableBody extends Component {
                 {this.renderCell(item, column)}
               </td>
             ))}
-            <button
-              className="butView"
-              style={{ marginLeft: "-14vw", marginTop: "1vh" }}
-            >
-              View
-            </button>
+            <Link to="/coding">
+              <button
+                className="butView"
+                style={{ marginLeft: "-14vw", marginTop: "1vh" }}
+              >
+                View
+              </button>
+            </Link>
           </tr>
         ))}
       </tbody>

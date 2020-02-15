@@ -5,5 +5,6 @@
   margin: auto;
 }
 .pagination {
+  margin-left: 2vw;
   box-shadow: -2px -2px 4px #ffffff73, 2px 2px 4px rgba(94, 104, 121, 0.288);
 }
