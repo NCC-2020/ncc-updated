@@ -82,8 +82,7 @@ class FinalBoard extends Component {
     this.state.teams.forEach((item, index) => {
       if (item.teamName === val) {
         //console.log(item.rank);
-        updateState.currentPage =
-          Math.floor((index + 1) / this.state.pageSize) + 1;
+        updateState.currentPage = Math.floor(index / this.state.pageSize) + 1;
         item.color = "trans";
       }
     });
