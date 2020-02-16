@@ -76,6 +76,8 @@ class team extends Component {
       this.props.changeCheckT("Username cannot be empty");
     } else if (value.length < 3) {
       this.props.changeCheckT("Username should be minimum 3 characters");
+    } else if (value.includes(" ")) {
+      this.props.changeCheckT("Username cannot contain a space character");
     } else {
       this.props.changeCheckT("");
     }
@@ -94,6 +96,10 @@ class team extends Component {
     if (this.state.teamname === "" || this.props.checkt != "") {
       if (this.props.checkt === "Username should be minimum 3 characters") {
         this.props.changeCheckT("Username should be minimum 3 characters");
+      } else if (
+        this.props.checkt === "Username cannot contain a space character"
+      ) {
+        this.props.changeCheckT("Username cannot contain a space character");
       } else {
         this.props.changeCheckT("Username cannot be empty");
       }

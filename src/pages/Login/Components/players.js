@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/players.css";
 import { connect } from "react-redux";
+import Axios from "axios";
 
 class players extends Component {
   constructor(props) {
@@ -364,6 +365,13 @@ class players extends Component {
       (x1 === 1 && x2 === 1 && x3 === 1 && x4 === 0 && x5 === 0 && x6 === 0) ||
       (x1 === 1 && x2 === 1 && x3 === 1 && x4 === 1 && x5 === 1 && x6 === 1)
     ) {
+      Axios.post("https://jsonplaceholder.typicode.com/posts", this.props.state)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
       this.props.changeModePL();
     }
   }
@@ -386,7 +394,7 @@ class players extends Component {
                 onFocus={this.handleFocusPn1.bind(this)}
                 onBlur={this.handleBlurPn1.bind(this)}
                 onChange={this.pl1nameChange.bind(this)}
-                value={this.props.player1Name}
+                value={this.props.state.player1Name}
                 spellCheck="false"
               ></input>
             </div>
@@ -404,7 +412,7 @@ class players extends Component {
                 onFocus={this.handleFocusPc1.bind(this)}
                 onBlur={this.handleBlurPc1.bind(this)}
                 onChange={this.pl1contactChange.bind(this)}
-                value={this.props.player1Contact}
+                value={this.props.state.player1Contact}
                 spellCheck="false"
               ></input>
             </div>
@@ -422,7 +430,7 @@ class players extends Component {
                 onFocus={this.handleFocusPe1.bind(this)}
                 onBlur={this.handleBlurPe1.bind(this)}
                 onChange={this.pl1emailChange.bind(this)}
-                value={this.props.player1Email}
+                value={this.props.state.player1Email}
                 spellCheck="false"
               ></input>
             </div>
@@ -441,7 +449,7 @@ class players extends Component {
                 onFocus={this.handleFocusPn2.bind(this)}
                 onBlur={this.handleBlurPn2.bind(this)}
                 onChange={this.pl2nameChange.bind(this)}
-                value={this.props.player2Name}
+                value={this.props.state.player2Name}
                 spellCheck="false"
               ></input>
             </div>
@@ -459,7 +467,7 @@ class players extends Component {
                 onFocus={this.handleFocusPc2.bind(this)}
                 onBlur={this.handleBlurPc2.bind(this)}
                 onChange={this.pl2contactChange.bind(this)}
-                value={this.props.player2Contact}
+                value={this.props.state.player2Contact}
                 spellCheck="false"
               ></input>
             </div>
@@ -477,7 +485,7 @@ class players extends Component {
                 onFocus={this.handleFocusPe2.bind(this)}
                 onBlur={this.handleBlurPe2.bind(this)}
                 onChange={this.pl2emailChange.bind(this)}
-                value={this.props.player2Email}
+                value={this.props.state.player2Email}
                 spellCheck="false"
               ></input>
             </div>
@@ -502,12 +510,7 @@ class players extends Component {
 
 const mapStateToProps = state => {
   return {
-    player1Name: state.player1Name,
-    player1Contact: state.player1Contact,
-    player1Email: state.player1Email,
-    player2Name: state.player2Name,
-    player2Contact: state.player2Contact,
-    player2Email: state.player2Email
+    state
   };
 };
 
