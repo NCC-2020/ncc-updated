@@ -2,17 +2,22 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { getQuestions } from "../services/qdatabase";
 import Button from "./button";
-
+import axios from "axios";
 import "./mytable.css";
 
 class QuestionH extends Component {
   constructor() {
     super();
     this.state = {
-      questions: getQuestions()
+      questions:[]
     };
   }
-
+  async componentDidMount(){
+    axios.get("http://sanket212000.pythonanywhere.com/questionhub/").then(response => {
+      this.setState({questions : response.data })
+    });
+    
+  }
   render() {
     return (
       <div className="tdiv">

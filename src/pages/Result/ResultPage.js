@@ -18,7 +18,7 @@ class App extends Component {
     };
   }
 
-  async componentWillMount(){
+  async componentDidMount(){
     axios.get("http://sanket212000.pythonanywhere.com/result/").then( response => {
       this.setState({
         submissions: response.data, 
@@ -42,6 +42,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     if(this.state.atharva === null)
       return null;
     if(this.state.atharva === "fetched"){
@@ -83,7 +84,7 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    teamName: state.userName
+    teamName: state.root.userName
   };
 };
 export default connect(mapStateToProps)(App);

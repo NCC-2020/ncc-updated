@@ -1,14 +1,31 @@
 const initState = {
     testcases : ["pass","pass","pass","fail","fail","fail"],
     time : 0,
-    result : ""
+    result : "Running Testcases"
 };
 
 const testCasesReducer = (state={ testcases : ["pass","pass","pass","fail","fail","fail"],
 time : 0,
-result : ""
+result : "Running Testcases..."
 }, action) => {
-return state;
+    switch(action.type)
+    {
+        case "UPDATE_TIME" : 
+        {
+            return {
+                ...state,
+                time : action.time
+            };
+        }
+        case "UPDATE_RESULT" : 
+        {
+            return {
+                ...state,
+                result : action.result
+            }
+        }
+    }
+    return state;
 }
 
 export default testCasesReducer;

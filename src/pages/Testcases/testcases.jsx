@@ -12,7 +12,7 @@ class Testcases extends Component {
   numberBorder = testcase => {
     
     let classes = "number ";
-    if(this.props.time<=150){
+    if(this.props.time<150){
     classes = classes + "border border-secondary";
     return classes;
     }
@@ -25,13 +25,19 @@ class Testcases extends Component {
 
   componentDidMount(){
     let time =0;
-    setInterval(this.setTime=()=>{
+    var i= setInterval(this.setTime=()=>{
       time =time +1;
-      this.setState({time});
+      this.props.updateTime(time);
+      if(time===150)
+      {
+        this.props.updateResult("PASS");
+        clearInterval(i);
+      }
     },40);
+   
   }
   render() {
-    console.log(this.props);
+
     return (
       <div className="col-sm-12">
         <div className="row" style={{ height: "55vh" ,marginTop:"6vh"}}>
@@ -106,7 +112,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-
+ return {
+   updateTime : (time) => { dispatch({type :"UPDATE_TIME",time : time})},
+   updateResult : (result) => { dispatch({type : "UPDATE_RESULT",result : result})}
+ }
 }
 
 
