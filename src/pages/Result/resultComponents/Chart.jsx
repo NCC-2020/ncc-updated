@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {Bar} from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 class Chart extends Component{
     constructor(props){
         super(props);
         this.state = {
-            chartData: props.chartData
+            chartData: this.props.chartData
         }
     }
 
@@ -48,7 +48,7 @@ class Chart extends Component{
                             yAxes: [{
                                 ticks: {
                                     min: 0,
-                                    max: 15,
+                                    max: 24,
                                     stepSize: 3,
                                     fontColor: "white",
                                     fontSize: "15"
