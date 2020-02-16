@@ -11,6 +11,7 @@ import "codemirror/theme/material.css";
 import "codemirror/mode/clike/clike";
 import "codemirror/addon/edit/closebrackets.js";
 import Question from "../../mainComponents/Questions";
+import { connect } from "react-redux";
 
 class CodingPage extends Component {
   constructor(props) {
@@ -61,6 +62,17 @@ class CodingPage extends Component {
     this.fileReader.onloadend = this.handleFileRead;
     this.fileReader.readAsText(file);
   };
+
+  loadBuffer = () => {
+    this.setState({
+      value: this.props.lastSubmission
+    });
+  };
+
+  codeChange = value => {
+    this.props.changeLastSubmission(value);
+  };
+
   render() {
     if (this.state.redirect === true) {
       return <Redirect push to="/testcases" />;
@@ -150,6 +162,7 @@ class CodingPage extends Component {
                       marginRight: "1vw",
                       width: "10vw"
                     }}
+                    onClick={this.loadBuffer}
                   >
                     Load Buffer
                   </button>
@@ -161,7 +174,9 @@ class CodingPage extends Component {
                 onBeforeChange={(editor, data, value) => {
                   this.setState({ value });
                 }}
-                onChange={(editor, data, value) => {}}
+                onChange={(editor, data, value) => {
+                  this.codeChange(value);
+                }}
                 editorDidMount={editor => {
                   editor.setSize("79vw", "55vh");
                 }}
@@ -205,4 +220,21 @@ class CodingPage extends Component {
   }
 }
 
-export default CodingPage;
+const mapStateToProps = state => {
+  return {
+    lastSubmission: state.lastSubmission
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeLastSubmission: value => {
+      dispatch({
+        type: "CHANGE_LAST_SUBMISSION",
+        newSubmission: value
+      });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CodingPage);

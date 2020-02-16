@@ -6,7 +6,8 @@ const initState = {
   player1Email: "",
   player2Name: "",
   player2Contact: "",
-  player2Email: ""
+  player2Email: "",
+  lastSubmission: ""
 };
 
 const rootReducer = (state = initState, action) => {
@@ -50,6 +51,11 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         player2Email: action.player2Email
+      };
+    case "CHANGE_LAST_SUBMISSION":
+      return {
+        ...state,
+        lastSubmission: action.newSubmission
       };
   }
   return state;
