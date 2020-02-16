@@ -510,7 +510,7 @@ class players extends Component {
 
 const mapStateToProps = state => {
   return {
-    state
+    state : state.root
   };
 };
 

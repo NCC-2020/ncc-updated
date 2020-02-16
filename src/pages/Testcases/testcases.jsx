@@ -7,17 +7,12 @@ import { connect } from "react-redux";
 import "font-awesome/css/font-awesome.min.css";
 
 class Testcases extends Component {
-  state = {
-    result: "Running Testcases...",
-    testcases: ["pass", "pass", "pass", "pass", "pass", "pass"],
-    time : 0
-  };
 
   
   numberBorder = testcase => {
     
     let classes = "number ";
-    if(this.state.time<=150){
+    if(this.props.time<=150){
     classes = classes + "border border-secondary";
     return classes;
     }
@@ -36,6 +31,7 @@ class Testcases extends Component {
     },40);
   }
   render() {
+    console.log(this.props);
     return (
       <div className="col-sm-12">
         <div className="row" style={{ height: "55vh" ,marginTop:"6vh"}}>
@@ -49,7 +45,7 @@ class Testcases extends Component {
                 alignItems: "center"
               }}
             >
-              <div className="result col-lg-3">{this.state.result}</div>
+              <div className="result col-lg-3">{this.props.result}</div>
               <div
                 className="col-lg-1"
                 style={{ border: ".5px solid rgb(39, 40, 43)" }}
@@ -61,7 +57,7 @@ class Testcases extends Component {
                   height: "40vh"
                 }}
               >
-                {this.state.testcases.map((testcase, index) => (
+                {this.props.testcases.map((testcase, index) => (
                   <div className="row" style={{ height: "8vh" }}>
                     <div className="testcaseLines col-lg-2" />    
                     <div className={this.numberBorder(testcase)}>
@@ -103,12 +99,15 @@ class Testcases extends Component {
 
 const mapStateToProps = state => {
   return  {
-
-  }
+    testcases : state.testcases.testcases,
+    time : state.testcases.time,
+    result : state.testcases.result
+  };
 }
 
 const mapDispatchToProps = dispatch => {
 
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Testcases);

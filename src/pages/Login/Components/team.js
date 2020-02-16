@@ -195,8 +195,8 @@ class team extends Component {
 
 const mapStateToProps = state => {
   return {
-    userName: state.userName,
-    passWord: state.password
+    userName: state.root.userName,
+    passWord: state.root.password
   };
 };
 

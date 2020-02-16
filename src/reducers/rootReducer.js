@@ -10,7 +10,17 @@ const initState = {
   lastSubmission: ""
 };
 
-const rootReducer = (state = initState, action) => {
+const rootReducer = (state = {
+  userName: "",
+  password: "",
+  player1Name: "",
+  player1Contact: "",
+  player1Email: "",
+  player2Name: "",
+  player2Contact: "",
+  player2Email: "",
+  lastSubmission: ""
+}, action) => {
   switch (action.type) {
     case "CHANGE_USERNAME":
       return {
