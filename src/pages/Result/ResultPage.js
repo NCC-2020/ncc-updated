@@ -42,7 +42,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     if(this.state.atharva === null)
       return null;
     if(this.state.atharva === "fetched"){

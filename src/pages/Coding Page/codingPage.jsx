@@ -39,6 +39,7 @@ class CodingPage extends Component {
   }
 
   handleClick = () => {
+     this.props.resetTestcase();
     this.setState({
       redirect: true
     });
@@ -233,6 +234,11 @@ const mapDispatchToProps = dispatch => {
         type: "CHANGE_LAST_SUBMISSION",
         newSubmission: value
       });
+    },
+    resetTestcase : () => {
+      dispatch({
+        type : "RESET_TESTCASES",
+      })
     }
   };
 };

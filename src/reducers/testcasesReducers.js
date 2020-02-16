@@ -24,6 +24,13 @@ result : "Running Testcases..."
                 result : action.result
             }
         }
+        case "RESET_TESTCASES" :
+            {
+                return{
+                    ...state,
+                    result : "Running Testcases..."
+                }
+            }
     }
     return state;
 }
