@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import "./navBar.css";
 import { connect } from "react-redux";
+import axios from "axios"
+import { Redirect } from "react-router"
 class Timer extends Component {
   state = {
     seconds: "00",
     minutes: "00",
-    hours: "03",
+    hours: "00",
+    hrs: 0,
     h1: "7.8vh",
     h2: "7.8vh",
-    h3: "7.8vh"
+    h3: "7.8vh",
+    fetched: false
   };
 
   startTimer = duration => {
@@ -61,50 +65,69 @@ class Timer extends Component {
   };
 
   componentDidMount() {
-    let hrs = 60 * 60 * 3;
+    //let hrs = 60 * 60 * 3;
+    axios.get("http://Sanket212000.pythonanywhere.com/time/")
+    .then(response=> {
+      console.log(response);
+       this.setState({
+        hrs:response.data.time,
+        seconds: response.data.ss,
+        minutes: response.data.mm,
+        hours: response.data.hh,
+        fetched: true
+     })
+     this.startTimer(this.state.hrs);
 
-    this.startTimer(hrs);
+     });
+    
+    
   }
 
   render() {
-    return (
-      <div className="col-sm-12">
-        <div className="row time">
-          <div className="circular">
-            <div
-              id="insideHr"
-              style={{
-                borderLeft: "4.5vw solid rgb(10,45,105)",
-                height: this.state.h3
-              }}
-            ></div>
-            <span id="hr">{this.state.hours}</span>
-          </div>
-          <div className="colon">:</div>
-          <div className="circular">
-            <div
-              id="insideMin"
-              style={{
-                borderLeft: "4.5vw solid rgb(10,45,105)",
-                height: this.state.h2
-              }}
-            ></div>
-            <span id="min">{this.state.minutes}</span>
-          </div>
-          <div className="colon">:</div>
-          <div className="circular">
-            <div
-              id="insideSec"
-              style={{
-                borderLeft: "4.5vw solid rgb(10,45,105)",
-                height: this.state.h1
-              }}
-            ></div>
-            <span id="sec">{this.state.seconds}</span>
+    if(this.state.fetched){
+      if(this.state.hours === "00" && this.state.minutes === "00" && this.state.seconds === "00"){
+        return <Redirect push to="/result" />
+      }
+      return (
+        <div className="col-sm-12">
+          <div className="row time">
+            <div className="circular">
+              <div
+                id="insideHr"
+                style={{
+                  borderLeft: "4.5vw solid rgb(10,45,105)",
+                  height: this.state.h3
+                }}
+              ></div>
+              <span id="hr">{this.state.hours}</span>
+            </div>
+            <div className="colon">:</div>
+            <div className="circular">
+              <div
+                id="insideMin"
+                style={{
+                  borderLeft: "4.5vw solid rgb(10,45,105)",
+                  height: this.state.h2
+                }}
+              ></div>
+              <span id="min">{this.state.minutes}</span>
+            </div>
+            <div className="colon">:</div>
+            <div className="circular">
+              <div
+                id="insideSec"
+                style={{
+                  borderLeft: "4.5vw solid rgb(10,45,105)",
+                  height: this.state.h1
+                }}
+              ></div>
+              <span id="sec">{this.state.seconds}</span>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else return null;
   }
 }
 const mapStateToProps = state => {

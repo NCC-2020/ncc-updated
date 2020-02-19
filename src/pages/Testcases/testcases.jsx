@@ -112,11 +112,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
- return {
-   updateTime : (time) => { dispatch({type :"UPDATE_TIME",time : time})},
-   updateResult : (result) => { dispatch({type : "UPDATE_RESULT",result : result})},
-  
- }
+  return {
+    updateTime : (time) => { dispatch({type :"UPDATE_TIME",time : time})},
+    updateResult : (result) => { dispatch({type : "UPDATE_RESULT",result : result})},
+    
+  }
 }
 
 
